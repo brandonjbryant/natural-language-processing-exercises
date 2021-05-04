@@ -130,3 +130,7 @@ dmypy.json
 
 #NLP
 regex_lesson.ipynb
+acquire_ref.ipynb
+article.txt
+nlp_prepare_lesson.ipynb
+web_scraping_demo.ipynb
