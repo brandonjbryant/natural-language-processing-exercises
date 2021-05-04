@@ -109,7 +109,7 @@ def get_articles(category):
     return output
     
 
-def get_all_news_articles(categories):
+def get_all_news_articles(categories) :
     """
     Takes in a list of categories where the category is part of the URL pattern on inshorts
     Returns a dataframe of every article from every category listed
@@ -127,4 +127,4 @@ def get_all_news_articles(categories):
 
 def acquire_news_articles():
 	categories = ["business", "sports", "technology", "entertainment", "science", "world"]
-	return get_all_news_articles(categories): 
+	return get_all_news_articles(categories)
