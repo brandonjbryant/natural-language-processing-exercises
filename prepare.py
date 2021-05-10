@@ -125,3 +125,31 @@ def prep_article_data(df, column, extra_words=[], exclude_words=[]):
                                    exclude_words=exclude_words)
     
     return df[['title', column,'clean', 'stemmed', 'lemmatized']]
+
+def remove_columns(df, cols_to_remove):  
+    """
+    This function removes columns listed in arguement
+    - cols_to_remove = ["col1", "col2", "col3", ...]
+    returns DF w/o the columns.
+    """
+    df = df.drop(columns=cols_to_remove)
+    return df
+
+    
+
+def full_df(df, columns):
+    """
+    This function will :drop unncessary columns ,rename content columns
+    apply basic_clean,tokenize, stem, and lemmatize functions to create new columns returns appended columns as a df
+    """
+    
+    df = remove_columns(df, cols_to_remove=columns)
+    
+    df = df.rename(columns={"content": "original"})
+    
+    df['clean'] = df.original.apply(basic_clean).apply(tokenize)
+    
+    df['stemmed'] = df.clean.apply(stem)
+    df['lemmatized'] = df.clean.apply(lemmatize)
+    
+    return df
